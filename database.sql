@@ -1,0 +1,20 @@
+CREATE TABLE users(
+    user_id SERIAL PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE movie(
+    id INT NOT NULL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description_ VARCHAR(255) NOT NULL,
+    img VARCHAR(255) NOT NULL,
+    imgTitle VARCHAR(255) NOT NULL,
+    imgSm VARCHAR(255) NOT NULL,
+    trailer VARCHAR(255) NOT NULL,
+    video VARCHAR(255) NOT NULL,
+    year_ VARCHAR(255) NOT NULL,
+    genre VARCHAR(255) NOT NULL,
+    isSeries BOOLEAN NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

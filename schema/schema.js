@@ -1,8 +1,11 @@
 const graphql = require("graphql");
-const _ = require("lodash");
 const books = require("../data");
-const Movie = require("../models/Movie");
-const MovieQueryType = require("../queries/movie");
+const {
+  MovieQueryType,
+  MovieMutationType,
+  UserMutationType,
+  UserQueryType,
+} = require("../queries/movie");
 
 const {
   GraphQLObjectType,
@@ -19,9 +22,28 @@ const RootQuery = new GraphQLObjectType({
       type: MovieQueryType,
       resolve: () => ({}),
     },
+    user: {
+      type: UserQueryType,
+      resolve: () => ({}),
+    },
+  },
+});
+
+const Mutation = new GraphQLObjectType({
+  name: "Mutation",
+  fields: {
+    movie: {
+      type: MovieMutationType,
+      resolve: () => ({}),
+    },
+    user: {
+      type: UserMutationType,
+      resolve: () => ({}),
+    },
   },
 });
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
+  mutation: Mutation,
 });
