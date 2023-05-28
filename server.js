@@ -22,7 +22,11 @@ const connect = () => {
       throw err;
     });
 };
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
+
+app.get("/", (req,res)=>{
+   res.send("<h1>hello Geepy</h1>");
+})
 
 app.listen(port, () => {
   connect();
